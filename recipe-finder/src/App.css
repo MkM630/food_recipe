@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Header --- */
+header {
+  width: 100%;
+  background-color: white;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+h1 {
+  text-align: center;
+  color: #ff7f50;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+/* --- Search Bar --- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto 20px;
+}
+
+.search-bar input {
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-bar button {
+  padding: 12px 24px;
+  background-color: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #e67347;
+  transform: translateY(-2px);
+}
+
+/* --- Recipe Cards Container --- */
+.recipes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* --- Single Recipe Card --- */
+.recipe-card {
+  background: white;
+  width: 280px;
+  margin: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.recipe-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recipe-card h3 {
+  margin: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.recipe-card p {
+  padding: 0 10px 10px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* --- Recipe Details Full View --- */
+.recipe-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(248, 249, 250, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Image + Ingredients wrapper */
+.pic_me {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Dish Image */
+.recipe-details img {
+  width: 350px;
+  max-width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Ingredients */
+.recipe-details ol {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.recipe-details li {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Instructions heading */
+.ins {
+  color: #e67347;
+  margin-top: 30px;
+  font-size: 1.2rem;
+}
+
+/* Instructions paragraph */
+.recipe-details p {
+  padding: 20px;
+  font-size: 1rem;
+  color: #555;
+  text-align: justify;
+  max-width: 800px;
+}
+
+/* Close button */
+.recipe-details button.close-btn {
+  margin-top: 10px;
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #ff7f50;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.recipe-details button.close-btn:hover {
+  background-color: #e67347;
+}
+
+/* --- No results found --- */
+.no-results {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* --- Loading Text --- */
+.loading {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* --- Media Queries: Responsiveness --- */
+@media (max-width: 768px) {
+  .pic_me {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .recipe-details img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .recipe-details ol {
+    text-align: center;
+  }
+
+  .recipe-details p {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .search-bar input, .search-bar button {
+    width: 100%;
+  }
+
+  .recipe-details {
+    padding: 20px 10px;
+  }
+
+  .recipe-details img {
+    max-width: 250px;
+  }
+
+  .pic_me {
+    gap: 20px;
+  }
+
+  .recipe-details p {
+    padding: 10px 5px;
+    font-size: 0.9rem;
+  }
+}
